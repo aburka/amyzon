@@ -29,5 +29,11 @@ module Amyzon
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.test_framework  :rspec, fixture: false
+      g.stylesheets     false
+      g.javascripts     false
+    end
   end
 end
