@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :book_authors, foreign_key: :author_id
   has_many :books, through: :book_authors
+
+  validates :name, :email, presence: true
 end
