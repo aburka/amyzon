@@ -10,6 +10,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="c-section">
+        <ul class="c-navigation">
+          <li class="c-navigation__item">
+            <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
+          </li>
+          <% if current_user %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+              Logged in as <%= current_user.email %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+
+              <%= link_to "Log In", new_user_session_path, class: "c-navigation__link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "c-navigation__link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <div class="c-container-page">
+      <%= yield %>
+    </div>
   </body>
 </html>
