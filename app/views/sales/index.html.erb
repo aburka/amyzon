@@ -1,0 +1,19 @@
+<div class="c-section">
+  <h1 class="c-title c-title--large">My Books</h1>
+</div>
+<div class="c-section">
+  <% if @sales.any? %>
+    <% @sales.each do |sale| %>
+      <div class="c-card u-margin-bottom-small">
+        <div class="c-section">
+          <h4 class="c-title"><%= sale.book.title %></h4>
+          <h4 class="c-title c-title--tiny"><%= sale.book.authors.pluck(:name).join(", ") %></h4>
+          <p class="c-paragraph c-paragraph--small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor...</p>
+          <%= link_to "Learn More", book_path(sale.book), class: "c-button c-button--small c-button--focal"%>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h2 class="c-title">You haven't purchased any books.</h2>
+  <% end %>
+</div>
