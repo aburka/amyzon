@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :books, through: :book_authors
 
   has_many :sales
-  has_many :purchased_books, through: :sales, class_name: "Book", foreign_key: :book_id
+  has_many :purchased_books, through: :sales, source: :book
 
   validates :name, :email, presence: true
 end
