@@ -35,6 +35,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use devise for authentication
 gem 'devise', '~> 4.5.0'
 
+gem "stripe"
+
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails', '~> 0.3.6'
