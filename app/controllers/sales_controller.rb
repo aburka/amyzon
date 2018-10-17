@@ -4,7 +4,6 @@ class SalesController < ApplicationController
 
   def index
     @sales = Sale.where(user: current_user)
-    @sales = current_user.sales
   end
 
   def new
