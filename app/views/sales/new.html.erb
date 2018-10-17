@@ -1,0 +1,12 @@
+<h1>Checkout</h1>
+<h2>Product <%= @book.title %></h2>
+<p>Your card will be charged $<%= @book.price %>.</p>
+
+<%= form_for [@book, @sale], html: { id: "payment-form" } do |f| %>
+  <div id="card-errors"><%= @card_errors %></div>
+  <%= f.hidden_field :stripe_token %>
+  <div id="card-element">
+    <!-- inject Stripe card form -->
+  </div>
+  <%= f.submit %>
+<% end %>
