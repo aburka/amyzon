@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,7 +39,6 @@ gem 'devise', '~> 4.5.0'
 gem "stripe"
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.8.0'
 end
@@ -52,9 +52,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  # Use postgresql as the database for Active Record
-  gem 'pg', '>= 0.18', '< 2.0'
-end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
