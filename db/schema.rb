@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_164914) do
+ActiveRecord::Schema.define(version: 2018_10_25_200238) do
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_164914) do
     t.datetime "updated_at", null: false
     t.decimal "price", precision: 16, scale: 2
     t.integer "author_id"
+    t.integer "popularity", default: 0, null: false
   end
 
   create_table "sales", force: :cascade do |t|
