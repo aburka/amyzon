@@ -1,8 +1,10 @@
 <div class="c-section">
   <h1 class="c-title c-title--large"><%= @book.title %></h1>
-  <h4 class="c-title"><%= @book.authors.pluck(:name).join(", ") %></h4>
-  <h4 class="c-title c-title--tiny"><%= @book.price %></h4>
-  <%= link_to "Buy this book!", new_book_sale_path(@book), class: "c-button c-button--focal" %>
+  <h4 class="c-title"><%= @book.author.name %></h4>
+  <h4 class="c-title c-title--tiny">$<%= @book.price %></h4>
+  <% if current_user %>
+    <%= link_to "Buy this book!", new_book_sale_path(@book), class: "c-button c-button--focal" %>
+  <% end %>
 </div>
 <div class="c-section">
   <h3 class="c-title c-title--small">About this book</h3>
