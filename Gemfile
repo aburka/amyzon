@@ -25,6 +25,8 @@ gem "devise", "~> 4.5.0"
 
 gem "stripe"
 
+gem "faker"
+
 group :development, :test do
   gem "sqlite3"
   gem "pry-rails", "~> 0.3.6"

@@ -1,17 +1,19 @@
+require "faker"
+
 ActiveRecord::Base.transaction do
-  User.create!(name: "Amy", email: "amy@amyzon.dev", password: "testing1")
+  User.create!(name: "Amy", email: "amy@amyzon.dev", password: "testing1", admin: true)
 
-  ron_rash = User.create!(name: "Ron Rash", email: "ron@ron_rash.dev", password: "testing1")
-
-  books = [
-    { title: "Serena", price: 15.99 },
-    { title: "One Foot in Eden", price: 24.99 },
-    { title: "Saints at the River", price: 24.99 },
-    { title: "Burning Bright", price: 12.99 }
-  ]
-  books.each do |book|
-    Book.create!(title: book[:title], price: book[:price])
+  35.times do
+    User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "testing1")
+    print "."
   end
 
-  ron_rash.books << Book.all
+  75.times do
+    Book.create!(title: Faker::Book.title, price: Faker::Commerce.price, author: User.where(admin: false).sample)
+    print "."
+  end
+
+  100.times do
+    Sale.create!(book: Book.all.sample, user: User.where(admin: false).sample, stripe_charge_id: "ch_123456789")
+  end
 end
