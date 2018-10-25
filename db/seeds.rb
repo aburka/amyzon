@@ -9,11 +9,13 @@ ActiveRecord::Base.transaction do
   end
 
   75.times do
-    Book.create!(title: Faker::Book.title, price: Faker::Commerce.price, author: User.where(admin: false).sample)
+    Book.create!(title: Faker::Book.title, price: Faker::Commerce.price,
+      author: User.where(admin: false).sample, popularity: Random.new.rand(1..100))
     print "."
   end
 
-  100.times do
+  300.times do
     Sale.create!(book: Book.all.sample, user: User.where(admin: false).sample, stripe_charge_id: "ch_123456789")
+    print "."
   end
 end
