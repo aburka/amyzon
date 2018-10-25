@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
@@ -17,13 +19,17 @@
           <li class="c-navigation__item">
             <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
           </li>
+          <% if current_user&.admin? %>
+            <li class="c-navigation__item">
+              <%= link_to "Admin Sales", admin_books_path, class: "c-navigation__link" %>
+            </li>
+          <% end %>
           <% if current_user %>
             <li class="c-navigation__item c-navigation__item--push-right">
               Logged in as <%= current_user.email %>
             </li>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
-
               <%= link_to "Log In", new_user_session_path, class: "c-navigation__link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "c-navigation__link" %>
             </li>
           <% end %>
