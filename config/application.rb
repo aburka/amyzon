@@ -35,5 +35,7 @@ module Amyzon
       g.stylesheets     false
       g.javascripts     false
     end
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

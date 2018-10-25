@@ -28,6 +28,8 @@ gem "stripe"
 
 gem "faker"
 
+gem "sidekiq"
+
 group :development, :test do
   gem "sqlite3"
   gem "pry-rails", "~> 0.3.6"

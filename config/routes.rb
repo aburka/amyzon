@@ -1,3 +1,4 @@
+require "sidekiq/web"
 Rails.application.routes.draw do
   devise_for :users
   root to: "books#index"
@@ -7,5 +8,9 @@ Rails.application.routes.draw do
 
   get "/sales", to: "sales#index"
 
-  get "styleguide", to: "styleguide#index"
+  namespace :admin do
+    mount Sidekiq::Web => "/sidekiq"
+    get "styleguide", to: "styleguide#index"
+    resources :books, only: :index
+  end
 end
