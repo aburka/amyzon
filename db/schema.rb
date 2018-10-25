@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_164800) do
-
-  create_table "book_authors", force: :cascade do |t|
-    t.bigint "book_id", null: false
-    t.bigint "author_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_book_authors_on_author_id"
-    t.index ["book_id"], name: "index_book_authors_on_book_id"
-  end
+ActiveRecord::Schema.define(version: 2018_10_25_164914) do
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
@@ -27,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_164800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "price", precision: 16, scale: 2
+    t.integer "author_id"
   end
 
   create_table "sales", force: :cascade do |t|
