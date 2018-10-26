@@ -8,9 +8,23 @@ ActiveRecord::Base.transaction do
     print "."
   end
 
+  finn_file = File.new(Rails.root + "public/images/finn.jpg", "r")
+  finn_filename = "#{SecureRandom.uuid}_#{File.basename(Rails.root + "public/images/finn.jpg")}"
+
+  bmo_file = File.new(Rails.root + "public/images/bmo.jpg", "r")
+  bmo_filename = "#{SecureRandom.uuid}_#{File.basename(Rails.root + "public/images/bmo.jpg")}"
+
+  images = [
+    { io: finn_file, filename: finn_filename, content_type: "image/jpeg" },
+    { io: bmo_file, filename: bmo_filename, content_type: "image/jpeg" }
+  ]
   75.times do
-    Book.create!(title: Faker::Book.title, price: Faker::Commerce.price,
+    book = Book.new(title: Faker::Book.title, price: Faker::Commerce.price,
       author: User.where(admin: false).sample, popularity: Random.new.rand(1..100))
+    image = images.sample
+    image[:io].rewind # for uploading the same file multiple times
+    book.cover_image.attach(image)
+    book.save!
     print "."
   end
 
