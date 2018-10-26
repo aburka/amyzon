@@ -11,7 +11,7 @@
 // .c-paragraph--on-dark    - For placement over dark backgrounds
 // .c-paragraph--center     - Center text
 // .c-paragraph--full-width - Make the paragraph full-width
-// 
+//
 // Styleguide: components.content.paragraph
 
 .c-paragraph {
@@ -20,7 +20,7 @@
   margin: 0 0 $s-regular;
 
   @media #{$bp-lap} {
-    max-width: rem(520px);
+    max-width: rem(920px);
   }
 
   .c-paragraph__link {

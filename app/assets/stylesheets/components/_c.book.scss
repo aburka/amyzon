@@ -9,7 +9,8 @@
 
 .c-book {
   @include elevation(2);
-  margin: $s-regular 0;
-  max-width: 300px;
+  margin: $s-tiny 2em $s-small 0;
+  float: left;
+  max-width: 150px;
   border: 1px solid $c-border;
 }

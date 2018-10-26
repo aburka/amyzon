@@ -18,6 +18,8 @@ gem "react-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem "mini_racer", platforms: :ruby
 
+gem "image_processing", "~> 1.2"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
@@ -29,6 +31,8 @@ gem "stripe"
 gem "faker"
 
 gem "sidekiq"
+
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem "sqlite3"

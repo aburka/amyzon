@@ -18,7 +18,7 @@ ActiveRecord::Base.transaction do
     { io: finn_file, filename: finn_filename, content_type: "image/jpeg" },
     { io: bmo_file, filename: bmo_filename, content_type: "image/jpeg" }
   ]
-  75.times do
+  25.times do
     book = Book.new(title: Faker::Book.title, price: Faker::Commerce.price,
       author: User.where(admin: false).sample, popularity: Random.new.rand(1..100))
     image = images.sample

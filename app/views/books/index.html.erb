@@ -5,9 +5,10 @@
   <% @books.each do |book| %>
     <div class="c-card u-margin-bottom-small">
       <div class="c-section">
+        <%= image_tag book.cover_image.variant(resize: "200x200"), class: "c-book" %>
         <h4 class="c-title"><%= book.title %></h4>
         <h4 class="c-title c-title--tiny"><%= book.author.name %></h4>
-        <p class="c-paragraph c-paragraph--small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor...</p>
+        <p class="c-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut...</p>
         <%= link_to "Learn More", book_path(book), class: "c-button c-button--small c-button--focal"%>
       </div>
     </div>
